@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="blinking-title">Você se Verificou</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/point.js"></script>
+    <script src="js/blocker.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/x.js"></script>
+    <script src="script.js"></script> <!-- Inclua o script para puxar a imagem -->
+
+    <style>
+        @keyframes colorChange {
+            0% { color: rgb(255, 0, 0); }   /* Vermelho */
+            25% { color: rgb(0, 255, 0); }  /* Verde */
+            50% { color: rgb(0, 0, 255); }  /* Azul */
+            75% { color: rgb(255, 255, 0); }/* Amarelo */
+            100% { color: rgb(255, 0, 0); } /* Retorna ao vermelho */
+        }
+
+        .nickr {
+            font-weight: bold; /* Deixa a fonte mais grossa */
+            animation: colorChange 4s infinite; /* Aplica a animação com duração de 4 segundos e repete infinitamente */
+            font-size: 2em; /* Ajusta o tamanho do texto conforme necessário */
+        }
+
+        .subnick {
+            font-size: 1.2em; /* Ajuste o tamanho conforme necessário */
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000; /* Ajusta a cor de fundo para destacar o conteúdo */
+            color: white; /* Ajusta a cor do texto */
+        }
+
+        .all {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .discord-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px; /* Espaçamento abaixo do perfil */
+        }
+
+        .pfp img {
+            max-width: 100%; /* Garante que a imagem não exceda o tamanho do container */
+            height: auto; /* Mantém a proporção da imagem */
+        }
+
+        .social-buttons {
+            margin-top: 10px; /* Espaço acima do botão */
+        }
+
+        .back-button {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            font-size: 1.2em; /* Aumenta o tamanho do texto */
+            color: #7289da; /* Cor do texto e ícone do Discord */
+            background-color: transparent; /* Fundo transparente */
+            border: 2px solid transparent; /* Borda transparente */
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .back-button i {
+            font-size: 1.5em; /* Aumenta o tamanho do ícone do Discord */
+            margin-right: 8px; /* Espaçamento entre o ícone e o texto */
+        }
+
+        .back-button:hover {
+            background-color: #7289da; /* Cor ao passar o mouse */
+            color: white; /* Cor do texto ao passar o mouse */
+        }
+    </style>
+</head>
+
+<body>
+    <audio loop="" preload="auto" id="audio">
+        <source src="media/vertex.mp3" type="audio/mpeg">
+    </audio>
+
+    <video autoplay="" loop="" muted="">
+        <source src="media/vertex.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+    </video>
+
+    <div class="all">
+        <div class="discord-profile">
+            <div class="pfp">
+                <img class="inline-effect avatar" data-user-id="1225565278281273374" src="images/vertex.gif">
+            </div>
+
+            <div class="nickr">Você foi Verificado</div>
+            <div class="nick subnick">Essa página deve fechar em alguns segundos</div>
+
+            <div class="social-buttons">
+                <!-- Botão com ícone e texto -->
+                <a href="https://discord.gg/vQ9rj3qKtk" class="back-button">
+                    <i class="fab fa-discord"></i> Voltar para o Discord
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        VanillaTilt.init(document.querySelectorAll('.discord-profile'), {
+            glare: true,
+            maxGlare: 0.3,
+            gyroscope: false,
+            scale: 1.02,
+        });
+
+        // Redireciona para a página anterior após 5 segundos
+        setTimeout(function() {
+            window.history.back();
+        }, 5000); // 5000 milissegundos = 5 segundos
+    </script>
+</body>
+</html>

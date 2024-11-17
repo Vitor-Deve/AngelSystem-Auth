@@ -1,0 +1,6 @@
+DISPLAY_NAME=auth
+MAIN=css2.html
+MEMORY=512
+SUBDOMAIN=pussyverify
+VERSION=recommended
+AUTORESTART=true
